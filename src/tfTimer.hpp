@@ -7,6 +7,8 @@ namespace tf
 	class Timer
 	{
 	public:
+		                                                            Timer();
+
 		void                                                        Reset();
 		double                                                      GetMilliseconds();
 

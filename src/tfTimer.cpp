@@ -1,5 +1,10 @@
 #include "tfTimer.hpp"
 
+tf::Timer::Timer()
+{
+	Reset();
+}
+
 void tf::Timer::Reset()
 {
 	 m_start = std::chrono::high_resolution_clock::now();
