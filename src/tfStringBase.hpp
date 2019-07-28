@@ -26,7 +26,7 @@ namespace tf
 		{
 		}
 
-		StringBase(const TChar* content, const size_t& size) :
+		StringBase(const TChar* content, const size_t size) :
 			std::basic_string<TChar>(content, size)
 		{
 		}
