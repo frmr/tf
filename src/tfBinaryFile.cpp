@@ -1,4 +1,5 @@
 #include "tfBinaryFile.hpp"
+#include "tfUnreachableException.hpp"
 
 tf::BinaryFile::BinaryFile(const String& filename) :
 	m_file(filename, std::ios::binary),
@@ -26,6 +27,7 @@ void tf::BinaryFile::Seek(const int64_t& offset, const SeekOrigin origin)
 	case SeekOrigin::BEG: dir = std::ios::beg; break;
 	case SeekOrigin::CUR: dir = std::ios::cur; break;
 	case SeekOrigin::END: dir = std::ios::end; break;
+	default:              throw UnreachableException("Invalid SeekOrigin");
 	}
 
 	m_file.seekg(offset, dir);
