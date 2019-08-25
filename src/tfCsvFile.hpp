@@ -32,15 +32,15 @@ namespace tf
 				}
 				catch (const std::out_of_range&)
 				{
-					Logger::Log(tf::String("Too few elements on line in CsvFile ({}) with content:", {m_filename}));
-					Logger::Log(line);
+					Logger::log(tf::String("Too few elements on line in CsvFile ({}) with content:", {m_filename}));
+					Logger::log(line);
 
 					success = false;
 				}
 				catch(const FileContentException&)
 				{
-					Logger::Log(String("Failed to parse line in CsvFile ({}) with content:", {m_filename}));
-					Logger::Log(line);
+					Logger::log(String("Failed to parse line in CsvFile ({}) with content:", {m_filename}));
+					Logger::log(line);
 
 					success = false;
 				}
@@ -73,7 +73,7 @@ namespace tf
 				}
 			}
 
-			WriteLines(lines);
+			writeLines(lines);
 		}
 		
 	protected:
@@ -103,7 +103,7 @@ namespace tf
 					else
 					{
 						String stripped = element;
-						stripped.Strip();
+						stripped.strip();
 
 						if (stripped.empty())
 						{
@@ -180,7 +180,7 @@ namespace tf
 					throw FileContentException(String("Too many columns in CsvFile ({})", {m_filename}));
 				}
 
-				element.Strip();
+				element.strip();
 				entry[m_columns[columnIndex++]] = element;
 			}
 
