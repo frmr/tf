@@ -8,7 +8,7 @@ namespace tf
 	class List : public std::list<T>
 	{
 	public:
-		bool Contains(const T& reference) const
+		bool contains(const T& reference) const
 		{
 			for (const T& value : *this)
 			{

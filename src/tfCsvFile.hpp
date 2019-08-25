@@ -15,10 +15,10 @@ namespace tf
 			TextFile(filename),
 			m_columns(columns)
 		{
-			Parse();
+			parse();
 		}
 
-		bool Parse()
+		bool parse()
 		{
 			bool success = true;
 
@@ -28,7 +28,7 @@ namespace tf
 			{
 				try
 				{
-					m_entries.push_back(ParseLine(line));
+					m_entries.push_back(parseLine(line));
 				}
 				catch (const std::out_of_range&)
 				{
@@ -49,12 +49,12 @@ namespace tf
 			return success;
 		}
  
-		const Vector<CsvLine>& GetEntries() const
+		const Vector<CsvLine>& getEntries() const
 		{
 			return m_entries;
 		}
 
-		void Write(const Vector<CsvLine>& entries)
+		void write(const Vector<CsvLine>& entries)
 		{
 			Vector<String> lines;
 
@@ -78,7 +78,7 @@ namespace tf
 		
 	protected:
 
-		CsvLine ParseLine(const String& line) const
+		CsvLine parseLine(const String& line) const
 		{
 			CsvLine  entry;
 			String   element;

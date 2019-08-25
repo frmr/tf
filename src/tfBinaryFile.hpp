@@ -12,15 +12,15 @@ namespace tf
 	public:
 		                BinaryFile(const String& filename);
 
-		bool            IsOpen() const;
-		void            Seek(const int64_t& offset, const SeekOrigin origin);
-		void            Read(const int64_t& bytes, Vector<uint8_t>& buffer);
-		void            Read(Vector<uint8_t>& buffer);
-		Vector<uint8_t> ToBuffer();
-		int64_t         GetSize() const;
+		bool            isOpen() const;
+		void            seek(const int64_t& offset, const SeekOrigin origin);
+		void            read(const int64_t& bytes, Vector<uint8_t>& buffer);
+		void            read(Vector<uint8_t>& buffer);
+		Vector<uint8_t> toBuffer();
+		int64_t         getSize() const;
 
 	private:
-		int64_t         CalculateSize();
+		int64_t         calculateSize();
 
 	private:
 		std::ifstream   m_file;

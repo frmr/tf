@@ -10,27 +10,27 @@ tf::IniSection::IniSection(const String& name) :
 {
 }
 
-tf::String tf::IniSection::GetName() const
+tf::String tf::IniSection::getName() const
 {
 	return m_name;
 }
 
-tf::Map<tf::String, tf::String> tf::IniSection::GetKeys() const
+tf::Map<tf::String, tf::String> tf::IniSection::getKeys() const
 {
 	return m_keys;
 }
 
-tf::String tf::IniSection::GetValue(const String& name) const
+tf::String tf::IniSection::getValue(const String& name) const
 {
 	return m_keys.at(name);
 }
 
-void tf::IniSection::SetValue(const String& name, const String& value)
+void tf::IniSection::setValue(const String& name, const String& value)
 {
 	m_keys[name] = value;
 }
 
-std::vector<tf::String> tf::IniSection::ToLines() const
+std::vector<tf::String> tf::IniSection::toLines() const
 {
 	std::vector<String> lines;
 
@@ -49,7 +49,7 @@ std::vector<tf::String> tf::IniSection::ToLines() const
 	return lines;
 }
 
-bool tf::IniSection::Contains(const String& name) const
+bool tf::IniSection::contains(const String& name) const
 {
-	return m_keys.Contains(name);
+	return m_keys.contains(name);
 }

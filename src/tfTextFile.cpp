@@ -7,42 +7,42 @@
 tf::TextFile::TextFile(const String& filename) :
 	m_filename(filename)
 {
-	Reload();
+	reload();
 }
 
-tf::String tf::TextFile::GetLine(const size_t index) const
+tf::String tf::TextFile::getLine(const size_t index) const
 {
 	return index < m_lines.size() ? m_lines[index] : "";
 }
 
-tf::Vector<tf::String> tf::TextFile::GetLines() const
+tf::Vector<tf::String> tf::TextFile::getLines() const
 {
 	return m_lines;
 }
 
-void tf::TextFile::WriteLine(const String& line)
+void tf::TextFile::writeLine(const String& line)
 {
-	WriteLines({line});
+	writeLines({line});
 }
 
-void tf::TextFile::WriteLines(const Vector<String>& lines)
+void tf::TextFile::writeLines(const Vector<String>& lines)
 {
 	m_lines = lines;
-	WriteLinesToFile();
+	writeLinesToFile();
 }
 
-void tf::TextFile::AppendLine(const String& line)
+void tf::TextFile::appendLine(const String& line)
 {
-	AppendLines({line});
+	appendLines({line});
 }
 
-void tf::TextFile::AppendLines(const Vector<String>& lines)
+void tf::TextFile::appendLines(const Vector<String>& lines)
 {
 	m_lines.insert(m_lines.end(), lines.begin(), lines.end());
-	WriteLinesToFile();
+	writeLinesToFile();
 }
 
-void tf::TextFile::Reload()
+void tf::TextFile::reload()
 {
 	std::ifstream file;
 	String        line;
@@ -52,7 +52,7 @@ void tf::TextFile::Reload()
 
 	if (!file)
 	{
-		throw FileIoException(String("Failed to open file ({})", {m_filename}));
+		throw FileIoException(String("Failed to open file ({})", { m_filename }));
 	}
 
 	while(std::getline(file, line))
@@ -63,7 +63,7 @@ void tf::TextFile::Reload()
 	file.close();
 }
 
-tf::String tf::TextFile::ToString() const
+tf::String tf::TextFile::toString() const
 {
 	String output;
 
@@ -75,7 +75,7 @@ tf::String tf::TextFile::ToString() const
 	return output;
 }
 
-void tf::TextFile::WriteLinesToFile() const
+void tf::TextFile::writeLinesToFile() const
 {
 	std::ofstream file(m_filename, std::ios::binary);
 

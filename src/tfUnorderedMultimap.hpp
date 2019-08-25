@@ -11,12 +11,12 @@ namespace tf
 	public:
 		using std::unordered_multimap<TKey, TValue>::unordered_multimap;
 
-		bool Contains(const TKey& key) const
+		bool contains(const TKey& key) const
 		{
 			return this->find(key) != this->end();
 		}
 
-		Vector<TValue> GetValues(const TKey& key) const
+		Vector<TValue> getValues(const TKey& key) const
 		{
 			Vector<TValue> values;
 

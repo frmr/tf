@@ -11,8 +11,8 @@ namespace tf
 	public:
 		using StringBase<char, String>::StringBase;
 
-		StringW FromUtf8() const;
-		void    ToLower();
+		StringW fromUtf8() const;
+		void    toLower();
 	};
 }
 

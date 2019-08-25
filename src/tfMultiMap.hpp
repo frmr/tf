@@ -10,7 +10,7 @@ namespace tf
 	public:
 		using std::multimap<TKey, TValue>::multimap;
 
-		bool Contains(const TKey& key) const
+		bool contains(const TKey& key) const
 		{
 			return this->find(key) != this->end();
 		}

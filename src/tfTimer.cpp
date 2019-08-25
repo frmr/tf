@@ -2,15 +2,15 @@
 
 tf::Timer::Timer()
 {
-	Reset();
+	reset();
 }
 
-void tf::Timer::Reset()
+void tf::Timer::reset()
 {
 	 m_start = std::chrono::high_resolution_clock::now();
 }
 
-double tf::Timer::GetMilliseconds()
+double tf::Timer::getMilliseconds()
 {
 	return std::chrono::duration<double, std::milli>(std::chrono::high_resolution_clock::now() - m_start).count();
 }

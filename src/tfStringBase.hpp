@@ -37,12 +37,12 @@ namespace tf
 		}
 
 		StringBase(const TChild& format, const tf::Vector<TChild>& args) :
-			std::basic_string<TChar>(Format(format, args))
+			std::basic_string<TChar>(this->format(format, args))
 		{
 		}
 
 		template<typename TTarget>
-		TTarget To() const
+		TTarget to() const
 		{
 			std::basic_istringstream<TChar> stream(*this);
 			TTarget                         value;
@@ -51,7 +51,7 @@ namespace tf
 			return value;
 		}
 
-		static TChild Format(const TChild& format, const tf::Vector<TChild>& args)
+		static TChild format(const TChild& format, const tf::Vector<TChild>& args)
 		{
 			static const std::basic_string<TChar> placeholder = {TChar('{'), TChar('}')};
 			size_t                                count       = 0;
@@ -72,12 +72,12 @@ namespace tf
 			return output;
 		}
 
-		bool Contains(const TChild& token) const
+		bool contains(const TChild& token) const
 		{
 			return this->find(token) != std::basic_string<TChar>::npos;
 		}
 
-		size_t Count(const TChild& token) const
+		size_t count(const TChild& token) const
 		{
 			size_t count  = 0;
 			size_t offset = 0;
@@ -91,7 +91,7 @@ namespace tf
 			return count;
 		}
 
-		tf::Vector<TChild> Split(const TChild& token) const
+		tf::Vector<TChild> split(const TChild& token) const
 		{
 			size_t             lastOffset = 0;
 			
@@ -112,34 +112,34 @@ namespace tf
 			return components;
 		}
 
-		TChild Left(const size_t length) const
+		TChild left(const size_t length) const
 		{
 			return this->substr(0, length);
 		}
 
-		TChild Right(const size_t length) const
+		TChild right(const size_t length) const
 		{
 			return length <= this->size() ? this->substr(this->size() - length) : TChild(*this);
 		}
 
-		TChild Middle(const size_t leftOffset, const size_t rightOffset) const
+		TChild middle(const size_t leftOffset, const size_t rightOffset) const
 		{
 			const size_t length = this->size() - rightOffset - leftOffset;
 
 			return length <= this->size() ? TChild(this->substr(leftOffset, length)) : *this;
 		}
 
-		bool StartsWith(const TChild& token) const
+		bool startsWith(const TChild& token) const
 		{
-			return Left(token.size()) == token;
+			return left(token.size()) == token;
 		}
 
-		bool EndsWith(const TChild& token) const
+		bool endsWith(const TChild& token) const
 		{
-			return Right(token.size()) == token;
+			return right(token.size()) == token;
 		}
 
-		void Replace(const TChild& oldToken, const TChild& newToken)
+		void replace(const TChild& oldToken, const TChild& newToken)
 		{
 			size_t lastOffset = 0;
 			size_t nextOffset;
@@ -151,38 +151,38 @@ namespace tf
 			}
 		}
 
-		void StripLeft()
+		void stripLeft()
 		{
 			size_t whitespaceChars = 0;
 
-			for (auto it = this->cbegin(); it != this->cend() && IsWhitespace(*it); ++it)
+			for (auto it = this->cbegin(); it != this->cend() && isWhitespace(*it); ++it)
 			{
 				++whitespaceChars;
 			}
 
-			*this = Right(this->size() - whitespaceChars);
+			*this = right(this->size() - whitespaceChars);
 		}
 
-		void StripRight()
+		void stripRight()
 		{
 			size_t whitespaceChars = 0;
 
-			for (auto it = this->crbegin(); it != this->crend() && IsWhitespace(*it); ++it)
+			for (auto it = this->crbegin(); it != this->crend() && isWhitespace(*it); ++it)
 			{
 				++whitespaceChars;
 			}
 
-			*this = Left(this->size() - whitespaceChars);
+			*this = left(this->size() - whitespaceChars);
 		}
 
-		void Strip()
+		void strip()
 		{
-			StripLeft();
-			StripRight();
+			stripLeft();
+			stripRight();
 		}
 
 	private:
-		static bool IsWhitespace(const TChar character)
+		static bool isWhitespace(const TChar character)
 		{
 			return (character == TChar(' ') || character == TChar('\t') || character == TChar('\n') || character == TChar('\r') || character == TChar('\v') || character == TChar('\f'));
 		}

@@ -4,22 +4,22 @@
 tf::IniFile::IniFile(const String& filename) :
 	TextFile(filename)
 {
-	Parse();
+	parse();
 }
 
-void tf::IniFile::Reload()
+void tf::IniFile::reload()
 {
-	TextFile::Reload();
-	Parse();
+	TextFile::reload();
+	parse();
 }
 
-void tf::IniFile::Save()
+void tf::IniFile::save()
 {
 	tf::Vector<String> lines;
 
-	if (m_sections.Contains(""))
+	if (m_sections.contains(""))
 	{
-		const auto sectionLines = m_sections[""].ToLines();
+		const auto sectionLines = m_sections[""].toLines();
 		lines.insert(lines.end(), sectionLines.begin(), sectionLines.end());
 	}
 
@@ -27,56 +27,56 @@ void tf::IniFile::Save()
 	{
 		if (sectionPair.first != "")
 		{
-			const auto sectionLines = sectionPair.second.ToLines();
+			const auto sectionLines = sectionPair.second.toLines();
 			lines.insert(lines.end(), sectionLines.begin(), sectionLines.end());
 		}
 	}
 
-	WriteLines(lines);
+	writeLines(lines);
 }
 
-tf::String tf::IniFile::GetValue(const String& keyName) const
+tf::String tf::IniFile::getValue(const String& keyName) const
 {
-	return GetValue("", keyName);
+	return getValue("", keyName);
 }
 
-tf::String tf::IniFile::GetValue(const String& sectionName, const String& keyName) const
+tf::String tf::IniFile::getValue(const String& sectionName, const String& keyName) const
 {
-	return m_sections.at(sectionName).GetValue(keyName);
+	return m_sections.at(sectionName).getValue(keyName);
 }
 
-void tf::IniFile::SetValue(const String& sectionName, const String& keyName, const String& keyValue)
+void tf::IniFile::setValue(const String& sectionName, const String& keyName, const String& keyValue)
 {
-	if (!m_sections.Contains(sectionName))
+	if (!m_sections.contains(sectionName))
 	{
 		m_sections[sectionName] = IniSection(sectionName);
 	}
 
-	m_sections[sectionName].SetValue(keyName, keyValue);
+	m_sections[sectionName].setValue(keyName, keyValue);
 
-	Save();
+	save();
 }
 
-void tf::IniFile::SetValue(const String& keyName, const String& keyValue)
+void tf::IniFile::setValue(const String& keyName, const String& keyValue)
 {
-	SetValue("", keyName, keyValue);
+	setValue("", keyName, keyValue);
 }
 
-tf::Map<tf::String, tf::IniSection> tf::IniFile::GetSections() const
+tf::Map<tf::String, tf::IniSection> tf::IniFile::getSections() const
 {
 	return m_sections;
 }
 
-bool tf::IniFile::Contains(const String& keyName) const
+bool tf::IniFile::contains(const String& keyName) const
 {
-	return Contains("", keyName);
+	return contains("", keyName);
 }
 
-bool tf::IniFile::Contains(const String& sectionName, const String& keyName) const
+bool tf::IniFile::contains(const String& sectionName, const String& keyName) const
 {
-	if (m_sections.Contains(sectionName))
+	if (m_sections.contains(sectionName))
 	{
-		return m_sections.at(sectionName).Contains(keyName);
+		return m_sections.at(sectionName).contains(keyName);
 	}
 	else
 	{
@@ -84,38 +84,38 @@ bool tf::IniFile::Contains(const String& sectionName, const String& keyName) con
 	}
 }
 
-void tf::IniFile::Parse()
+void tf::IniFile::parse()
 {
 	String activeSectionName = "";
 	size_t lineNumber        = 1;
 
 	for (auto line : m_lines)
 	{
-		line.Strip();
+		line.strip();
 
-		if (line.StartsWith("[") && line.EndsWith("]"))
+		if (line.startsWith("[") && line.endsWith("]"))
 		{
-			activeSectionName = line.Middle(1, 1);
+			activeSectionName = line.middle(1, 1);
 
-			if (!m_sections.Contains(activeSectionName))
+			if (!m_sections.contains(activeSectionName))
 			{
 				m_sections[activeSectionName] = IniSection(activeSectionName);
 			}
 		}
-		else if (!line.empty() && !line.StartsWith(";"))
+		else if (!line.empty() && !line.startsWith(";"))
 		{
-			auto parts = line.Split("=");
+			auto parts = line.split("=");
 
 			if (parts.size() == 2)
 			{
-				parts.front().Strip();
-				parts.back().Strip();
+				parts.front().strip();
+				parts.back().strip();
 
-				m_sections[activeSectionName].SetValue(parts.front(), parts.back());
+				m_sections[activeSectionName].setValue(parts.front(), parts.back());
 			}
 			else
 			{
-				Logger::Log(String("Invalid INI syntax in file ({}) on line {}", {m_filename, std::to_string(lineNumber)}));
+				Logger::log(String("Invalid INI syntax in file ({}) on line {}", {m_filename, std::to_string(lineNumber)}));
 			}
 		}
 

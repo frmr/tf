@@ -10,18 +10,18 @@ namespace tf
 	public:
 		                        IniFile(const String& filename);
 
-		void                    Reload();
-		void                    Save();
-		String                  GetValue(const String& keyName) const;
-		String                  GetValue(const String& sectionName, const String& keyName) const;
-		void                    SetValue(const String& sectionName, const String& keyName, const String& keyValue);
-		void                    SetValue(const String& keyName, const String& keyValue);
-		Map<String, IniSection> GetSections() const;
-		bool                    Contains(const String& keyName) const;
-		bool                    Contains(const String& sectionName, const String& keyName) const;
+		void                    reload();
+		void                    save();
+		String                  getValue(const String& keyName) const;
+		String                  getValue(const String& sectionName, const String& keyName) const;
+		void                    setValue(const String& sectionName, const String& keyName, const String& keyValue);
+		void                    setValue(const String& keyName, const String& keyValue);
+		Map<String, IniSection> getSections() const;
+		bool                    contains(const String& keyName) const;
+		bool                    contains(const String& sectionName, const String& keyName) const;
 
 	private:
-		void                    Parse();
+		void                    parse();
 
 	private:
 		Map<String, IniSection> m_sections;

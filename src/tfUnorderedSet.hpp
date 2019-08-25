@@ -10,7 +10,7 @@ namespace tf
 	public:
 		using std::unordered_set<T>::unordered_set;
 
-		bool Contains(const T& key) const
+		bool contains(const T& key) const
 		{
 			return this->find(key) != this->end();
 		}

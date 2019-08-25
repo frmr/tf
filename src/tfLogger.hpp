@@ -8,11 +8,11 @@ namespace tf
 	class Logger
 	{
 	public:
-		static void Log(const String& message);
-		static void SetFilename(const String& filename);
+		static void       log(const String& message);
+		static void       setFilename(const String& filename);
 
 	private:
-		static String GetTime();
+		static String     getTime();
 
 	private:
 		static String     m_filename;

@@ -10,7 +10,7 @@ namespace tf
 	public:
 		using std::vector<T>::vector;
 
-		void Append(const Vector<T>& other)
+		void append(const Vector<T>& other)
 		{
 			insert(this->end(), other.begin(), other.end());
 		}

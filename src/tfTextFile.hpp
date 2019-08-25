@@ -10,21 +10,21 @@ namespace tf
 	public:
 		               TextFile(const String& filename);
 
-		String         GetLine(const size_t index) const;
-		Vector<String> GetLines() const;
+		String         getLine(const size_t index) const;
+		Vector<String> getLines() const;
 
-		void           WriteLine(const String& line);
-		void           WriteLines(const Vector<String>& lines);
+		void           writeLine(const String& line);
+		void           writeLines(const Vector<String>& lines);
 
-		void           AppendLine(const String& line);
-		void           AppendLines(const Vector<String>& lines);
+		void           appendLine(const String& line);
+		void           appendLines(const Vector<String>& lines);
 		
-		virtual void   Reload();
+		virtual void   reload();
 
-		String         ToString() const;
+		String         toString() const;
 
 	private:
-		void           WriteLinesToFile() const;
+		void           writeLinesToFile() const;
 
 	protected:
 		const String   m_filename;

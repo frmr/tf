@@ -11,12 +11,12 @@ namespace tf
 	public:
 		using std::unordered_map<TKey, TValue>::unordered_map;
 
-		bool Contains(const TKey& key) const
+		bool contains(const TKey& key) const
 		{
 			return this->find(key) != this->end();
 		}
 
-		tf::UnorderedSet<TKey> GetKeys() const
+		tf::UnorderedSet<TKey> getKeys() const
 		{
 			UnorderedSet<TKey> keys;
 

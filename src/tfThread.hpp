@@ -19,7 +19,7 @@ namespace tf
 		{
 		}
 
-		void Start()
+		void start()
 		{
 			if (!IsRunning())
 			{
@@ -28,7 +28,7 @@ namespace tf
 			}
 		}
 
-		void Stop(const Wait wait)
+		void stop(const Wait wait)
 		{
 			if (IsRunning())
 			{
@@ -41,7 +41,7 @@ namespace tf
 			}
 		}
 
-		bool IsRunning() const
+		bool isRunning() const
 		{
 			return m_task.valid() && (m_task.wait_for(std::chrono::seconds(0)) == std::future_status::timeout);
 		}

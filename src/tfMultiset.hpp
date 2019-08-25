@@ -10,7 +10,7 @@ namespace tf
 	public:
 		using std::multiset<T>::multiset;
 
-		bool Contains(const T& key) const
+		bool contains(const T& key) const
 		{
 			return this->find(key) != this->end();
 		}

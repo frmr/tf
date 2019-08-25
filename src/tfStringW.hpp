@@ -11,6 +11,6 @@ namespace tf
 	public:
 		using StringBase<wchar_t, StringW>::StringBase;
 
-		String ToUtf8() const;
+		String toUtf8() const;
 	};
 }
