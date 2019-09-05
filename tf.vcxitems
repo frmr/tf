@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{874df6da-4313-45ae-a9e4-2e0eafe46ddb}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\tfBinaryFile.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\tfLogger.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\tfString.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\tfStringW.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\tfTextFile.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfBinaryFile.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfCsvFile.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfCsvLine.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfFileContentException.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfFileIoException.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfList.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfLock.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfLogger.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfMap.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfMultiMap.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfMultiset.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfQueue.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfRandomRange.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfSeekOrigin.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfSet.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfString.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfStringBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfStringW.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfTextFile.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfThread.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfUnorderedMap.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfUnorderedMultimap.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfUnorderedSet.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfVector.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfWait.hpp" />
+  </ItemGroup>
+</Project>
