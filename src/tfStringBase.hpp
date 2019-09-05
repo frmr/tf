@@ -146,7 +146,7 @@ namespace tf
 
 			while ((nextOffset = this->find(oldToken, lastOffset)) != std::basic_string<TChar>::npos)
 			{
-				this->replace(nextOffset, oldToken.size(), newToken);
+				std::basic_string<TChar>::replace(nextOffset, oldToken.size(), newToken);
 				lastOffset = nextOffset;
 			}
 		}
