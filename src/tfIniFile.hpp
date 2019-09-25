@@ -10,7 +10,7 @@ namespace tf
 	public:
 		                        IniFile(const String& filename);
 
-		void                    reload();
+		void                    reload() override;
 		void                    save();
 		String                  getValue(const String& keyName) const;
 		String                  getValue(const String& sectionName, const String& keyName) const;
