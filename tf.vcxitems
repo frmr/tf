@@ -22,7 +22,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfIniFile.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfIniSection.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfList.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfLock.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfLogger.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfMap.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfMultiMap.hpp" />
