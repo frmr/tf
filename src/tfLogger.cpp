@@ -8,8 +8,8 @@ std::mutex tf::Logger::m_mutex;
 
 void tf::Logger::log(const String& message)
 {
-	std::lock_guard<std::mutex> lock(m_mutex);
-	std::ofstream               logFile(m_filename, std::ios::app);
+	std::unique_lock<std::mutex> lock(m_mutex);
+	std::ofstream                logFile(m_filename, std::ios::app);
 
 	logFile << getTime() + "  \t" + message << std::endl;
 	logFile.close();
@@ -17,7 +17,7 @@ void tf::Logger::log(const String& message)
 
 void tf::Logger::setFilename(const String& filename)
 {
-	std::lock_guard<std::mutex> lock(m_mutex);
+	std::unique_lock<std::mutex> lock(m_mutex);
 	m_filename = filename;
 }
 
