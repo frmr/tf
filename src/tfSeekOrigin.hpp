@@ -4,8 +4,8 @@ namespace tf
 {
 	enum class SeekOrigin
 	{
-		BEG,
-		CUR,
-		END
+		Beg,
+		Cur,
+		End
 	};
 }

@@ -10,7 +10,7 @@ tf::BinaryFile::BinaryFile(const String& filename) :
 		throw std::runtime_error("BinaryFile::BinaryFile(): Couldn't open " + filename);
 	}
 
-	seek(0, SeekOrigin::BEG);
+	seek(0, SeekOrigin::Beg);
 }
 
 bool tf::BinaryFile::isOpen() const
@@ -24,9 +24,9 @@ void tf::BinaryFile::seek(const int64_t& offset, const SeekOrigin origin)
 
 	switch (origin)
 	{
-	case SeekOrigin::BEG: dir = std::ios::beg; break;
-	case SeekOrigin::CUR: dir = std::ios::cur; break;
-	case SeekOrigin::END: dir = std::ios::end; break;
+	case SeekOrigin::Beg: dir = std::ios::beg; break;
+	case SeekOrigin::Cur: dir = std::ios::cur; break;
+	case SeekOrigin::End: dir = std::ios::end; break;
 	default:              throw UnreachableException("Invalid SeekOrigin");
 	}
 
@@ -61,7 +61,7 @@ int64_t tf::BinaryFile::getSize() const
 
 int64_t tf::BinaryFile::calculateSize()
 {
-	seek(0, SeekOrigin::END);
+	seek(0, SeekOrigin::End);
 
 	return m_file.tellg();
 }
