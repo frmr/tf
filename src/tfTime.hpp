@@ -7,12 +7,12 @@ namespace tf
 	class Time
 	{
 	public:
-		         Time();
-		         Time(const uint64_t& timestamp);
+		        Time();
+		        Time(const int64_t& timestamp);
 
-		uint64_t getTimestamp() const;
+		int64_t getTimestamp() const;
 
 	private:
-		uint64_t m_timestamp;
+		int64_t m_timestamp;
 	};
 }
