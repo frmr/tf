@@ -173,7 +173,7 @@ tf::CsvLine tf::CsvFile::parseLine(const String & line) const
 
 	if (entry.size() != m_columns.size())
 	{
-		throw tf::FileContentException(tf::String("Incorrect number of entries on word file line ({}). Expected {}, got {}.", { m_filename, std::to_string(m_columns.size()), std::to_string(line.size()) }));
+		throw FileContentException(tf::String("Incorrect number of entries on word file line ({}). Expected {}, got {}.", { m_filename, std::to_string(m_columns.size()), std::to_string(line.size()) }));
 	}
 
 	return entry;
