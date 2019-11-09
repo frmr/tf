@@ -16,7 +16,7 @@ namespace tf
 		{
 		}
 
-		T sample()
+		T get()
 		{
 			return (T) m_distribution(m_engine);
 		}

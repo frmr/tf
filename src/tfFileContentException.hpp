@@ -9,7 +9,7 @@ namespace tf
 	{
 	public:
 		FileContentException(const String& what) :
-			std::runtime_error("FileContentException: " + what)
+			std::runtime_error("tf::FileContentException: " + what)
 		{
 		}
 	};

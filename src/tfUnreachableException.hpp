@@ -9,7 +9,7 @@ namespace tf
 	{
 	public:
 		UnreachableException(const String& what) :
-			std::runtime_error("UnreachableException: " + what)
+			std::runtime_error("tf::UnreachableException: " + what)
 		{
 		}
 	};

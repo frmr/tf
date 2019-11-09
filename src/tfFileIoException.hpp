@@ -9,7 +9,7 @@ namespace tf
 	{
 	public:
 		FileIoException(const String& what) :
-			std::runtime_error("FileIoException: " + what)
+			std::runtime_error("tf::FileIoException: " + what)
 		{
 		}
 	};
