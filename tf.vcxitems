@@ -17,6 +17,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfBinaryFile.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfCsvFile.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfCsvLine.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfExternalLibraryException.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfFileContentException.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfFileIoException.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfIniFile.hpp" />
@@ -27,6 +28,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfMultiMap.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfMultiset.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfQueue.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfSecureRandomBytes.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfRandomRange.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfSeekOrigin.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfSet.hpp" />
