@@ -31,6 +31,10 @@ namespace tf
 			}
 
 			#else
+
+			assert(false);
+			// TODO: implement for Linux
+
 			#endif
 		}
 
