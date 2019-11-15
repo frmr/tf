@@ -9,6 +9,7 @@ extern "C"
 BOOLEAN NTAPI RtlGenRandom(PVOID RandomBuffer, ULONG RandomBufferLength);
 # pragma comment(lib, "advapi32.lib")
 #else
+#include <bsd/stdlib.h>
 #endif
 
 #include "tfExternalLibraryException.hpp"
@@ -33,8 +34,7 @@ namespace tf
 
 			#else
 
-			assert(false);
-			// TODO: implement for Linux
+			arc4random_buf(buffer, size);
 
 			#endif
 		}
