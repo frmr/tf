@@ -15,6 +15,7 @@ BOOLEAN NTAPI RtlGenRandom(PVOID RandomBuffer, ULONG RandomBufferLength);
 #include <type_traits>
 #include <limits>
 #include <cstdint>
+#include <cassert>
 
 namespace tf
 {
