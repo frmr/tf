@@ -35,7 +35,7 @@ void tf::BinaryFile::seek(const int64_t& offset, const SeekOrigin origin)
 
 void tf::BinaryFile::read(const int64_t& bytes, tf::Vector<uint8_t>& buffer)
 {
-	buffer.resize(bytes);
+	buffer.resize(size_t(bytes));
 
 	m_file.read(reinterpret_cast<char*>(buffer.data()), bytes);
 }
