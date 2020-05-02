@@ -12,7 +12,7 @@ namespace tf
 
 		void append(const Vector<T>& other)
 		{
-			insert(this->end(), other.begin(), other.end());
+			std::vector<T>::insert(this->end(), other.begin(), other.end());
 		}
 	};
 }
