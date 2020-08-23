@@ -1,6 +1,4 @@
-cmake_minimum_required (VERSION 3.10)
-
-add_library (tf STATIC
+set(TF_SOURCES
 	src/tfBinaryFile.cpp
 	src/tfCsvFile.cpp
 	src/tfIniFile.cpp
