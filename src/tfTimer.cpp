@@ -10,7 +10,7 @@ void tf::Timer::reset()
 	 m_start = std::chrono::high_resolution_clock::now();
 }
 
-double tf::Timer::getMilliseconds()
+double tf::Timer::getMilliseconds() const
 {
 	return std::chrono::duration<double, std::milli>(std::chrono::high_resolution_clock::now() - m_start).count();
 }

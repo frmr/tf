@@ -10,7 +10,7 @@ namespace tf
 		                                                            Timer();
 
 		void                                                        reset();
-		double                                                      getMilliseconds();
+		double                                                      getMilliseconds() const;
 
 	private:
 		std::chrono::time_point<std::chrono::high_resolution_clock> m_start;
