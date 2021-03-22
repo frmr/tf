@@ -17,6 +17,7 @@ namespace tf
 		void            read(const int64_t& bytes, Vector<uint8_t>& buffer);
 		void            read(Vector<uint8_t>& buffer);
 		Vector<uint8_t> toBuffer();
+		String          toString();
 		int64_t         getSize() const;
 
 	private:

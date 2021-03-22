@@ -54,6 +54,17 @@ tf::Vector<uint8_t> tf::BinaryFile::toBuffer()
 	return buffer;
 }
 
+tf::String tf::BinaryFile::toString()
+{
+	const tf::Vector<uint8_t> buffer = toBuffer();
+	tf::String                string;
+
+	string.resize(buffer.size(), 'r');
+	memcpy(string.data(), buffer.data(), string.size());
+
+	return string;
+}
+
 int64_t tf::BinaryFile::getSize() const
 {
 	return m_size;
