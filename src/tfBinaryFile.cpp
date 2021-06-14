@@ -1,6 +1,8 @@
 #include "tfBinaryFile.hpp"
 #include "tfUnreachableException.hpp"
 
+#include <cstring>
+
 tf::BinaryFile::BinaryFile(const String& filename) :
 	m_file(filename, std::ios::binary),
 	m_size(calculateSize())
@@ -60,7 +62,7 @@ tf::String tf::BinaryFile::toString()
 	tf::String                string;
 
 	string.resize(buffer.size(), 'r');
-	memcpy(string.data(), buffer.data(), string.size());
+	std::memcpy(const_cast<char*>(string.data()), buffer.data(), string.size());
 
 	return string;
 }
