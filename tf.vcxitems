@@ -44,7 +44,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfUnorderedMultimap.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfUnorderedSet.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfUnreachableException.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\tfVector.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tfWait.hpp" />
   </ItemGroup>
   <ItemGroup>

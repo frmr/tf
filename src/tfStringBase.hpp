@@ -2,9 +2,9 @@
 
 #include <string>
 #include <sstream>
-#include "tfVector.hpp"
 #include <type_traits>
 #include <cctype>
+#include <vector>
 
 namespace tf
 {
@@ -36,7 +36,7 @@ namespace tf
 		{
 		}
 
-		StringBase(const TChild& format, const tf::Vector<TChild>& args) :
+		StringBase(const TChild& format, const std::vector<TChild>& args) :
 			std::basic_string<TChar>(this->format(format, args))
 		{
 		}
@@ -51,7 +51,7 @@ namespace tf
 			return value;
 		}
 
-		static TChild format(const TChild& format, const tf::Vector<TChild>& args)
+		static TChild format(const TChild& format, const std::vector<TChild>& args)
 		{
 			static const std::basic_string<TChar> placeholder = {TChar('{'), TChar('}')};
 			size_t                                count       = 0;
@@ -91,12 +91,12 @@ namespace tf
 			return count;
 		}
 
-		tf::Vector<TChild> split(const TChild& token) const
+		std::vector<TChild> split(const TChild& token) const
 		{
-			size_t             lastOffset = 0;
+			size_t              lastOffset = 0;
 			
-			size_t             nextOffset;
-			tf::Vector<TChild> components;
+			size_t              nextOffset;
+			std::vector<TChild> components;
 
 			while ((nextOffset = this->find(token, lastOffset)) != this->npos)
 			{

@@ -35,21 +35,21 @@ void tf::BinaryFile::seek(const int64_t& offset, const SeekOrigin origin)
 	m_file.seekg(offset, dir);
 }
 
-void tf::BinaryFile::read(const int64_t& bytes, tf::Vector<uint8_t>& buffer)
+void tf::BinaryFile::read(const int64_t& bytes, std::vector<uint8_t>& buffer)
 {
 	buffer.resize(size_t(bytes));
 
 	m_file.read(reinterpret_cast<char*>(buffer.data()), bytes);
 }
 
-void tf::BinaryFile::read(Vector<uint8_t>& buffer)
+void tf::BinaryFile::read(std::vector<uint8_t>& buffer)
 {
 	read(getSize(), buffer);
 }
 
-tf::Vector<uint8_t> tf::BinaryFile::toBuffer()
+std::vector<uint8_t> tf::BinaryFile::toBuffer()
 {
-	tf::Vector<uint8_t> buffer;
+	std::vector<uint8_t> buffer;
 
 	read(buffer);
 
@@ -58,7 +58,7 @@ tf::Vector<uint8_t> tf::BinaryFile::toBuffer()
 
 tf::String tf::BinaryFile::toString()
 {
-	const tf::Vector<uint8_t> buffer = toBuffer();
+	const std::vector<uint8_t> buffer = toBuffer();
 	tf::String                string;
 
 	string.resize(buffer.size(), 'r');

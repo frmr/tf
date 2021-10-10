@@ -1,6 +1,6 @@
 #include "tfCsvFile.hpp"
 
-tf::CsvFile::CsvFile(const String& filename, const Vector<String>& columns) :
+tf::CsvFile::CsvFile(const String& filename, const std::vector<String>& columns) :
 	TextFile(filename),
 	m_columns(columns)
 {
@@ -38,14 +38,14 @@ bool tf::CsvFile::parse()
 	return success;
 }
 
-const tf::Vector<tf::CsvLine>& tf::CsvFile::getEntries() const
+const std::vector<tf::CsvLine>& tf::CsvFile::getEntries() const
 {
 	return m_entries;
 }
 
-void tf::CsvFile::write(const Vector<CsvLine>& entries)
+void tf::CsvFile::write(const std::vector<CsvLine>& entries)
 {
-	Vector<String> lines;
+	std::vector<String> lines;
 
 	for (const CsvLine& entry : entries)
 	{

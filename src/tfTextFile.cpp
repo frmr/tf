@@ -15,7 +15,7 @@ tf::String tf::TextFile::getLine(const size_t index) const
 	return index < m_lines.size() ? m_lines[index] : "";
 }
 
-tf::Vector<tf::String> tf::TextFile::getLines() const
+std::vector<tf::String> tf::TextFile::getLines() const
 {
 	return m_lines;
 }
@@ -25,7 +25,7 @@ void tf::TextFile::writeLine(const String& line)
 	writeLines({line});
 }
 
-void tf::TextFile::writeLines(const Vector<String>& lines)
+void tf::TextFile::writeLines(const std::vector<String>& lines)
 {
 	m_lines = lines;
 	writeLinesToFile();
@@ -36,7 +36,7 @@ void tf::TextFile::appendLine(const String& line)
 	appendLines({line});
 }
 
-void tf::TextFile::appendLines(const Vector<String>& lines)
+void tf::TextFile::appendLines(const std::vector<String>& lines)
 {
 	m_lines.insert(m_lines.end(), lines.begin(), lines.end());
 	writeLinesToFile();

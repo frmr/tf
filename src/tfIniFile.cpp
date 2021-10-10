@@ -15,7 +15,7 @@ void tf::IniFile::reload()
 
 void tf::IniFile::save()
 {
-	tf::Vector<String> lines;
+	std::vector<String> lines;
 
 	if (m_sections.contains(""))
 	{

@@ -3,7 +3,6 @@
 #include "tfTextFile.hpp"
 #include "tfCsvLine.hpp"
 #include "tfFileContentException.hpp"
-#include "tfVector.hpp"
 #include "tfLogger.hpp"
 
 namespace tf
@@ -11,18 +10,18 @@ namespace tf
 	class CsvFile : protected TextFile
 	{
 	public:
-		                       CsvFile(const String& filename, const Vector<String>& columns);
+		                            CsvFile(const String& filename, const std::vector<String>& columns);
 
-		bool                   parse();
-		const Vector<CsvLine>& getEntries() const;
-		void                   write(const Vector<CsvLine>& entries);
+		bool                        parse();
+		const std::vector<CsvLine>& getEntries() const;
+		void                        write(const std::vector<CsvLine>& entries);
 		
 	protected:
 
-		CsvLine                parseLine(const String& line) const;
+		CsvLine                     parseLine(const String& line) const;
 
 	private:
-		const Vector<String>   m_columns;
-		Vector<CsvLine>        m_entries;
+		const std::vector<String>   m_columns;
+		std::vector<CsvLine>        m_entries;
 	};
 }

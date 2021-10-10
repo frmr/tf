@@ -8,26 +8,26 @@ namespace tf
 	class TextFile
 	{
 	public:
-		               TextFile(const String& filename);
+		                    TextFile(const String& filename);
 
-		String         getLine(const size_t index) const;
-		Vector<String> getLines() const;
+		String              getLine(const size_t index) const;
+		std::vector<String> getLines() const;
 
-		void           writeLine(const String& line);
-		void           writeLines(const Vector<String>& lines);
+		void                writeLine(const String& line);
+		void                writeLines(const std::vector<String>& lines);
 
-		void           appendLine(const String& line);
-		void           appendLines(const Vector<String>& lines);
+		void                appendLine(const String& line);
+		void                appendLines(const std::vector<String>& lines);
 		
-		virtual void   reload();
+		virtual void        reload();
 
-		String         toString() const;
+		String              toString() const;
 
 	private:
-		void           writeLinesToFile() const;
+		void                writeLinesToFile() const;
 
 	protected:
-		const String   m_filename;
-		Vector<String> m_lines;
+		const String        m_filename;
+		std::vector<String> m_lines;
 	};
 }
